@@ -4,6 +4,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Poppins } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
 import AuthProvider from '@/providers/auth-provider'
+import { TanStackProvider } from '@/providers/tanstack-provider'
 
 const satoshi = localFont({
   src: './fonts/Satoshi-Variable.ttf',
@@ -33,8 +34,10 @@ export default function RootLayout({ children }) {
       enableSystem
     >
       <AuthProvider>
-        {children}
-        <Toaster richColors position="top-right" />
+        <TanStackProvider>
+          {children}
+          <Toaster richColors position="top-right" />
+        </TanStackProvider>
       </AuthProvider>
     </ThemeProvider>
     </body>
