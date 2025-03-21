@@ -1,4 +1,4 @@
-import { LayoutDashboard } from 'lucide-react'
+import { LayoutDashboard, PenBox, User } from 'lucide-react'
 
 export const navItems = [
   {
@@ -9,11 +9,11 @@ export const navItems = [
   {
     title: 'Transactions',
     href: '/transactions',
-    icon: LayoutDashboard,
+    icon: PenBox,
   },
   {
-    title: 'Scan ',
-    href: '/transactions/scan',
-    icon: LayoutDashboard,
-  },
+    title: 'Profile',
+    href: '/profile',
+    icon: User,
+  }
 ]

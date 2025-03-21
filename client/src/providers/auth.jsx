@@ -108,8 +108,6 @@ export default function Auth({ children }) {
   useEffect(() => {
     if (user && isAuthPage) {
       router.push('/dashboard')
-    } else if (!user && !isAuthPage && !publicPage) {
-      router.push('/signin')
     }
   }, [user, isAuthPage, router, publicPage])
 
