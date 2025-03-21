@@ -1,7 +1,7 @@
-import localFont from 'next/font/local'
-import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Poppins } from 'next/font/google'
+import localFont from 'next/font/local';
+import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Poppins } from 'next/font/google';
 
 const satoshi = localFont({
   src: './fonts/Satoshi-Variable.ttf',
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
     <body
-      className={`${satoshi.variable} ${poppins.variable} antialiased`}
+      className={`${satoshi.variable} ${poppins.variable} antialiased min-h-dvh`}
     >
     <ThemeProvider
       attribute="class"
