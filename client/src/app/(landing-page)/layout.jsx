@@ -1,7 +1,7 @@
-import { ThemeToggle } from '@/components/theme-toggle';
-import React from 'react';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/theme-toggle'
+import React from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export default function LandingPageLayout({ children }) {
   return (
@@ -20,8 +20,8 @@ export default function LandingPageLayout({ children }) {
               <ThemeToggle />
             </div>
 
-            <Link href="/login" className="hidden md:block">
-              <Button variant="secondary">Login</Button>
+            <Link href="/signin" className="hidden md:block">
+              <Button variant="secondary">Sign In</Button>
             </Link>
             <Link href="/signup">
               <Button>Sign Up</Button>

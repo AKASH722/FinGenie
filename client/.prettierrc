@@ -3,7 +3,7 @@
   "bracketSpacing": true,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "semi": true,
+  "semi": false,
   "endOfLine": "lf",
   "plugins": ["prettier-plugin-tailwindcss"],
   "tailwindConfig": "tailwind.config.js"
