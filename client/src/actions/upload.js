@@ -1,13 +1,13 @@
 'use server';
 
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
-import { randomUUID } from 'crypto';
+import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import { randomUUID } from 'crypto'
 
 const s3 = new S3Client({
-  region: process.env.AWS_REGION,
+  region: process.env.REGION,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
   },
 });
 
@@ -19,7 +19,7 @@ export async function uploadToS3(formData) {
 
   const fileName = `uploads/${Date.now()}-${randomUUID()}-${file.name}`;
   const uploadParams = {
-    Bucket: process.env.AWS_BUCKET_NAME,
+    Bucket: process.env.BUCKET_NAME,
     Key: fileName,
     Body: buffer,
     ContentType: file.type,
@@ -27,6 +27,5 @@ export async function uploadToS3(formData) {
 
   await s3.send(new PutObjectCommand(uploadParams));
 
-  const url = `https://${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileName}`;
-  return url;
+  return `https://${process.env.BUCKET_NAME}.s3.${process.env.REGION}.amazonaws.com/${fileName}`;
 }
