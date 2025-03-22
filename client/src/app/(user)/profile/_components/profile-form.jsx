@@ -1,17 +1,16 @@
-"use client"
+'use client'
 
-import { useState } from "react"
-import { useAuthUser, useUpdateUser } from "@/hooks/use-user"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Skeleton } from "@/components/ui/skeleton"
-import { AlertCircle, Loader2 } from "lucide-react"
-import { Alert, AlertDescription } from "@/components/ui/alert"
+import { useState } from 'react'
+import { useAuthUser, useUpdateUser } from '@/hooks/use-user'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Skeleton } from '@/components/ui/skeleton'
+import { AlertCircle, Loader2 } from 'lucide-react'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 import { toast } from 'sonner'
-import { uploadToS3 } from '@/actions/upload'
 
 export function ProfileForm() {
   const { data: user, isLoading, error } = useAuthUser()
@@ -53,7 +52,12 @@ export function ProfileForm() {
         setIsUploading(true)
         const formData = new FormData()
         formData.append("file", imageFile)
-        imageUrl = await uploadToS3(formData)
+        const res = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        })
+        const data = await res.json()
+        imageUrl = data.url
         setIsUploading(false)
       }
 
