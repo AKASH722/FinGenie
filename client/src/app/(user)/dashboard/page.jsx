@@ -35,7 +35,7 @@ export default function Dashboard() {
         {isLoading ? (
           <Skeleton className="h-8 w-64" />
         ) : (
-          <h1 className="text-3xl font-bold tracking-tight">Hello, {user?.username || "there"}! 👋</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Hello, {user?.name || user?.username || "there"}! 👋</h1>
         )}
         <p className="text-muted-foreground">Here&#39;s an overview of your financial activity.</p>
       </div>
@@ -153,44 +153,44 @@ export default function Dashboard() {
       </Card>
 
       {/* Recent Transactions Section */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Transactions</CardTitle>
-          <CardDescription>Your latest financial activities</CardDescription>
-        </CardHeader>
-        <CardContent>
-          {isLoading ? (
-            <div className="space-y-2">
-              {Array.from({ length: 3 }).map((_, i) => (
-                <div key={i} className="flex items-center space-x-4">
-                  <Skeleton className="h-12 w-12 rounded-full" />
-                  <div className="space-y-2">
-                    <Skeleton className="h-4 w-[250px]" />
-                    <Skeleton className="h-4 w-[200px]" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {summary?.length > 0 ? (
-                <div className="rounded-md border">
-                  <div className="p-4">
-                    <div className="font-medium">No recent transactions to display</div>
-                    <div className="text-sm text-muted-foreground">Your recent transactions will appear here</div>
-                  </div>
-                </div>
-              ) : (
-                <div className="flex h-[100px] w-full items-center justify-center rounded-lg border border-dashed">
-                  <div className="flex flex-col items-center text-center">
-                    <p className="text-sm text-muted-foreground">No transaction data available.</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+      {/*<Card>*/}
+      {/*  <CardHeader>*/}
+      {/*    <CardTitle>Recent Transactions</CardTitle>*/}
+      {/*    <CardDescription>Your latest financial activities</CardDescription>*/}
+      {/*  </CardHeader>*/}
+      {/*  <CardContent>*/}
+      {/*    {isLoading ? (*/}
+      {/*      <div className="space-y-2">*/}
+      {/*        {Array.from({ length: 3 }).map((_, i) => (*/}
+      {/*          <div key={i} className="flex items-center space-x-4">*/}
+      {/*            <Skeleton className="h-12 w-12 rounded-full" />*/}
+      {/*            <div className="space-y-2">*/}
+      {/*              <Skeleton className="h-4 w-[250px]" />*/}
+      {/*              <Skeleton className="h-4 w-[200px]" />*/}
+      {/*            </div>*/}
+      {/*          </div>*/}
+      {/*        ))}*/}
+      {/*      </div>*/}
+      {/*    ) : (*/}
+      {/*      <div className="space-y-4">*/}
+      {/*        {summary?.length > 0 ? (*/}
+      {/*          <div className="rounded-md border">*/}
+      {/*            <div className="p-4">*/}
+      {/*              <div className="font-medium">No recent transactions to display</div>*/}
+      {/*              <div className="text-sm text-muted-foreground">Your recent transactions will appear here</div>*/}
+      {/*            </div>*/}
+      {/*          </div>*/}
+      {/*        ) : (*/}
+      {/*          <div className="flex h-[100px] w-full items-center justify-center rounded-lg border border-dashed">*/}
+      {/*            <div className="flex flex-col items-center text-center">*/}
+      {/*              <p className="text-sm text-muted-foreground">No transaction data available.</p>*/}
+      {/*            </div>*/}
+      {/*          </div>*/}
+      {/*        )}*/}
+      {/*      </div>*/}
+      {/*    )}*/}
+      {/*  </CardContent>*/}
+      {/*</Card>*/}
     </div>
   )
 }

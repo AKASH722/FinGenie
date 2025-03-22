@@ -56,7 +56,7 @@ export const useDeleteTransaction = () => {
 // Get income vs. expense summary
 export const useTransactionSummary = () => {
   return useQuery({
-    queryKey: ['transaction-summary'],
+    queryKey: ['transactions', 'summary'],
     queryFn: async () => {
       const response = await axios.get(`/api/transactions/summary`);
       return response.data;

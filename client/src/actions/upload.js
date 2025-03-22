@@ -28,6 +28,5 @@ export async function uploadToS3(formData) {
   await s3.send(new PutObjectCommand(uploadParams));
 
   const url = `https://${process.env.AWS_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${fileName}`;
-  console.log('Uploaded URL:', url);
   return url;
 }

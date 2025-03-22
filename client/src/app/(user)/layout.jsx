@@ -6,7 +6,7 @@ import { ThemeToggle } from '@/components/theme-toggle'
 export default function Layout({ children }) {
   return (
     <div className="relative flex min-h-dvh flex-col">
-      <header className="sticky flex items-center justify-between top-0 z-40 border-b bg-background lg:hidden">
+      <header className="sticky flex items-center justify-between w-full top-0 z-40 border-b bg-background lg:hidden">
         <div className="flex px-3 py-2 items-center space-x-2">
           <Image src="/logo.png" alt="logo" height={32} width={32} />
           <span className="text-xl text-primary font-bold">
